@@ -1,0 +1,87 @@
+Answers to Pen- and Paper Exercises, Unit 5, Part 2, CSCI E-10b
+
+Anna Ntenta, anna.ntenta@gmail.com
+----------------------------------------------------
+
+Question 1:
+
+Invalid:
+---------
+RedBloodCell c = new BloodCell();
+
+The subclass RedBloodCell extends the functionality of the superclass BloodCell but not vice versa, so a new BlodCell object cannot be of type RedBloodCell.
+
+Valid:
+-------
+Cell c = new BloodCell();
+Cell c = new RedBloodCell();
+BloodCell c = new RedBloodCell();
+
+
+
+
+----------------------------------------------------
+
+Question 2:
+
+Makes sense:
+-------------
+1. class Oven extends Kitchen 
+2. class Guitar extends Instrument 
+4. class Ferrari extends Engine 
+5. class FriedEgg extends Food 
+6. class Beagle extends Pet 
+10. class RollingStones extends RockBand
+
+Makes no sense:
+---------------
+3. class Person extends Employee
+7. class Container extends Jar 
+8. class Beverage extends Martini
+9. class Metal extends Titanium
+
+
+
+----------------------------------------------------
+
+Question 3:
+
+** Petjava
+ *  unit 5.2.3
+ *
+ *  @author:  Anna Ntenta
+ *  @version: Last Modified February 26, 2014
+ */
+
+// the Pet object represents a pet with a name and birth year
+
+public abstract class Pet {
+	private String name; // pet's name
+	private int year;	//pet's birth year
+
+// initializes a new Pet with a name and birth year
+
+	public Pet (String petName, int petYear) {
+
+		// pre: name != null 
+
+		if (petName == null)
+		{
+			throw new NullPointerException("All pets need a name");
+		}
+
+		name = petName;
+		year = petYear;
+	}
+
+	// gets the name of the pet
+
+	public String getName ()
+		{
+			return name;
+		}
+
+	// returns the sound of the pet
+
+	public abstract String speak();
+}
