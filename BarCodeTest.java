@@ -4,7 +4,7 @@ public class BarCodeTest
 {
 	public static void main (String [] args) 
 	{
-	/*	// test 1 to make a bar code out of zip code
+		// test 1 to make a bar code out of zip code
 		BarCode bc1 = new BarCode ("02138");
 		if (bc1.getBarCode() == null) 
 		{
@@ -20,7 +20,7 @@ public class BarCodeTest
 		// //remember to check that zip is valid in the constructor
 		System.out.println ("Converting bar code into zip code...");
 		System.out.println ("The zip code for bar code ||:|:::|:|:||::::::||:|::|:::||| is " + zc1.getZipCode() + "\n");
-	*/
+	
 		// test 2 to make a bar code out of zip code
 		BarCode bc2 = new BarCode ("63124");
 		// //remember to check that zip is valid in the constructor
@@ -30,8 +30,8 @@ public class BarCodeTest
 		BarCode zc2 = new BarCode (bc2.getBarCode());
 		// //remember to check that zip is valid in the constructor
 		System.out.println ("Converting bar code into zip code...");
-		System.out.println ("The zip code for bar code " + zc2.getBarCode() + "is " + zc2.getZipCode() + "\n");
-/*
+		System.out.println ("The zip code for bar code " + zc2.getBarCode() + " is " + zc2.getZipCode() + "\n");
+
 		// test 3 to make a zip code out of a bar code
 		BarCode zc3 = new BarCode ("||:::||::|:::|:|:|::|||:::||:::|");
 		// // remember to check that zip is valid in the constructor
@@ -45,13 +45,10 @@ public class BarCodeTest
 		System.out.println ("The zip code for bar code ||:|:::|:|:||::::::||:|::|:::|| is " + zc4.getZipCode() + "\n");
 
 		// test 5 to make a zip code out of a bar code
-		BarCode zc4 = new BarCode ("||:|:::|:|:||::::::||:|::|:::||:");
+		BarCode zc5 = new BarCode ("||:|:::|:|:||::::::||:|::|:::||:");
 		// // remember to check that zip is valid in the constructor
 		System.out.println ("Converting bar code into zip code...");
 		System.out.println ("The zip code for bar code ||:|:::|:|:||::::::||:|::|:::||: is " + zc5.getZipCode() + "\n");
 
-
-
-*/
 	}
 }

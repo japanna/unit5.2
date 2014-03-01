@@ -73,51 +73,60 @@ public class BarCode {
 		return myZipCode;
 	}
 
+	// checks the 32 symbol bar code to determine if it is valid.
+	// This method checks for correct delimiters, correct 
+	// digit patterns and a correct check digit.
 	private boolean isValidBarCode(String barCode)
 	{
-		// build a string to be checked
-		StringBuilder digits = new StringBuilder();
-
-		// initialize array of bar segments
-		String [] barSegments = new String [6]; // maybe use a constant?
-
-		// counter for bar segments
-		int j = 1;
-
-		// populate array
-		for (int  i = 0; i < 6; i++)
+		// check that start- and end frame bars are in place
+		if (barCode.startsWith("|") && barCode.endsWith("|"))
 		{
-			barSegments[i] = barCode.substring(j, j + 5);
-			j = j+5;
-		}
+			// build a string to be checked
+			StringBuilder digits = new StringBuilder();
 
-		// decode bar segments and append to string to be checked
-		for (int i = 0; i < 6; i++)
-		{
-			digits.append(codeToDigit(barSegments[i]));
-		}
+			// initialize array of bar segments
+			String [] barSegments = new String [6]; // maybe use a constant?
 
-		String s = digits.toString();
+			// counter for bar segments
+			int j = 1;
 
-		// stores the sum of the zip code digits
-		int digitSum = 0;
-
-		// check that all entries are digits and that check digit is correct
-		if (isNumeric(s))
+			// populate array
+			for (int  i = 0; i < 6; i++)
 			{
-				for (int 1 = 0; i < s.length() - 1; i++)
-				{
-					digitSum += s.charAt(i);
-				}
-
-				// check if the last digit in the string equals check sum
-				if (s.charAt(5) == getCheckDigit(digitSum))
-				{
-					return true;
-				}
-				else return false;
+				barSegments[i] = barCode.substring(j, j + 5);
+				j = j+5;
 			}
 
+			// decode bar segments and append to string to be checked
+			for (int i = 0; i < 6; i++)
+			{
+				digits.append(codeToDigit(barSegments[i]));
+			}
+
+			String s = digits.toString();
+
+			// stores the sum of the zip code digits
+			int digitSum = 0;
+
+			// check that all entries are digits and that check digit is correct
+			if (isNumeric(s))
+				{
+					for (int i = 0; i < s.length() - 1; i++)
+					{
+						digitSum += s.charAt(i);
+					}
+
+					// check if the last digit in the string equals check sum
+					if (s.charAt(5) == Character.forDigit(getCheckDigit(digitSum), 10))
+					{
+						return true;
+					}
+					else return false;
+				}
+			else return false;
+		}
+		// either missing start- or end frame bar, or both.
+		else return false;
 	}
 
 	// takes a zip code and returns the bar code
