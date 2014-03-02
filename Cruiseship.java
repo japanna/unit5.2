@@ -46,6 +46,12 @@ public class Cruiseship extends Ship {
 
 	public String toString () 
 	{
-		return getName() + ", " + getNoOfPassengers(); 
+		return "\nName of ship: " + getName() + "\nPassenger capacity: " + getNoOfPassengers(); 
 	}
+
+	public void setCapacity(double d)
+	{}
+
+	public void setCargo(Cargo ca)
+	{}
 }

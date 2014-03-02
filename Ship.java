@@ -13,6 +13,11 @@ enum Engine {
 		ELECTRIC, WIND, HUMAN_FORCE
 	};
 
+enum Cargo {
+		GRAINS, COAL, ORE, CEMENT, PUPPETS
+	};
+
+
 public abstract class Ship {
 
 	
@@ -72,4 +77,8 @@ public abstract class Ship {
 	}
 
 	public abstract void setNoOfPassengers(int newNo);
+
+	public abstract void setCapacity(double newCap);
+
+	public abstract void setCargo(Cargo newCargo);
 }
