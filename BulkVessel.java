@@ -34,6 +34,6 @@ public class BulkVessel extends CargoShip {
 
 	public String toString () 
 	{
-		return "\nName of ship: " + getName() + "\nCargo: " + getCargo(); 
+		return "\nName of bulk vessel: " + getName() + "\nCargo: " + getCargo(); 
 	}
 }

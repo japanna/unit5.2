@@ -34,7 +34,7 @@ public class CargoShip extends Ship {
 
 	public String toString () 
 	{
-		return "\nName of ship: " + getName() + "\nTonnage capacity: " + getCapacity(); 
+		return "\nName of cargo ship: " + getName() + "\nTonnage capacity: " + getCapacity(); 
 	}
 
 	public void setNoOfPassengers(int newNo)
