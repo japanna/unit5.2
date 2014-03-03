@@ -81,7 +81,6 @@ public class BarCode {
     * @param   	barCode  A string representing a bar code
     * @return  	True or False depending on whether input is a valid bar code
     */	
-
 	private boolean isValidBarCode(String barCode)
 	{
 		// check that start- and end frame bars are in place

@@ -1,11 +1,14 @@
 // Ship.java, unit 5.2.5
 
 /** 
- *  
- *
+ *  The abstract class "Ship" enables the construction of various "Ship"-objects
+ *  such as "Cruiseship", "CargoShip" and "BulkVessel".
+ *  The class supports a minimum of "getter"- and "setter" methods
+ *  on purpose, since currently there are no client methods that need acces to
+ *  the "engine" field. 
  *
  *  @author:  Anna Ntenta, anna.ntenta@gmail.com
- *  @version: Last Modified ________, 2014
+ *  @version: Last Modified 3/3, 2014
  */
 
 enum Engine {
@@ -20,8 +23,6 @@ enum Cargo {
 
 public abstract class Ship {
 
-	
-
 	// data fields
 	private String name; // ship's name
 	private int year; // year ship was built
@@ -32,11 +33,15 @@ public abstract class Ship {
 	public Ship (String name, int year, Engine engine) 
 	{
 		this.name = name;
-		this.year = year;
+		// check that year is a four-digit number
+		int length = String.valueOf(year).length();
+		if (length != 4) this.year = 0;
+		else this.year = year;
 		this.engine = engine;
 	}
 
 	// accessor ("getter") methods
+	// currently no other getter or setter methods are available
 	public String getName() 
 	{
 		return name;
@@ -45,27 +50,6 @@ public abstract class Ship {
 	public int getYear() 
 	{
 		return year;
-	}
-
-	public Engine getEngine() 
-	{
-		return engine;
-	}
-
-	// mutator ("setter") methods
-	public void setName (String newName)
-	{
-		this.name = newName;
-	}
-
-	public void setYear (int newYear)
-	{
-		this.year = newYear;
-	}
-
-	public void setEngine (Engine newEngine)
-	{
-		this.engine = newEngine;
 	}
 
 	// toString method that displays the ship’s name, the engine type, 

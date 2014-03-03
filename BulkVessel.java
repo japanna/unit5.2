@@ -1,7 +1,7 @@
 // BulkVessel.java, unit 5.2.5
 
 /** 
- *  
+ *  Constructs a "BulkVessel"- object.
  *
  *
  *  @author:  Anna Ntenta, anna.ntenta@gmail.com
@@ -32,6 +32,7 @@ public class BulkVessel extends CargoShip {
 		this.cargo = newCargo;
 	}
 
+	// overrides default toString methods
 	public String toString () 
 	{
 		return "\nName of bulk vessel: " + getName() + "\nCargo: " + getCargo(); 

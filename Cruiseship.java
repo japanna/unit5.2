@@ -1,11 +1,14 @@
 // Cruiseship.java, unit 5.2.5
 
 /** 
- *  
- *
+ *  Constructs a "Cruiseship"- object.
+ *	There are currently no getter or setter methods for the field "noroVirus",
+ *  since there are currently no clients accessing or setting that information.
+ *  Pre: a cruiseship cannot have a negative passenger capacity. If it is negative
+ *  the capacity will be set to zero.
  *
  *  @author:  Anna Ntenta, anna.ntenta@gmail.com
- *  @version: Last Modified ________, 2014
+ *  @version: Last Modified 3/3, 2014
  */
 
 public class Cruiseship extends Ship {
@@ -28,30 +31,24 @@ public class Cruiseship extends Ship {
 		return noOfPassengers;
 	}
 
-	public boolean getNoroVirus ()
-	{
-		return noroVirus;
-	}
-
 	// mutators
 	public void setNoOfPassengers (int newNoOfPassengers)
 	{
-		this.noOfPassengers = newNoOfPassengers;
+		// check that passenger capacity is > 0, else set to 0
+		if (newNoOfPassengers < 0) this.noOfPassengers = 0;
+		else this.noOfPassengers = newNoOfPassengers;
 	}
 
-	public void setNoroVirus (boolean isNoroVirus)
-	{
-		this.noroVirus = isNoroVirus;
-	}
-
+	// overrides default toString methods
 	public String toString () 
 	{
-		return "\nName of cruise ship: " + getName() + "\nPassenger capacity: " + getNoOfPassengers(); 
+		return "\nName of cruise ship: " + getName() + "\nPassenger capacity: " + noOfPassengers; 
 	}
 
+	// overrides abstract method set in Ship.java
 	public void setCapacity(double d)
 	{}
-
+	// overrides abstract method set in Ship.java
 	public void setCargo(Cargo ca)
 	{}
 }
