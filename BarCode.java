@@ -8,7 +8,7 @@
  *
  *
  *  @author:  Anna Ntenta, anna.ntenta@gmail.com
- *  @version: Last Modified ________, 2014
+ *  @version: Last Modified 3/3, 2014
  */
 
 import java.util.*;
@@ -73,9 +73,15 @@ public class BarCode {
 		return myZipCode;
 	}
 
-	// checks the 32 symbol bar code to determine if it is valid.
-	// This method checks for correct delimiters, correct 
-	// digit patterns and a correct check digit.
+/**
+    * This method checks the 32 symbol bar code to determine if it is valid.
+ 	* The method checks for correct frame bars, correct digit patterns 
+ 	* and a correct check digit.
+    *
+    * @param   	barCode  A string representing a bar code
+    * @return  	True or False depending on whether input is a valid bar code
+    */	
+
 	private boolean isValidBarCode(String barCode)
 	{
 		// check that start- and end frame bars are in place
@@ -129,7 +135,13 @@ public class BarCode {
 		else return false;
 	}
 
-	// takes a zip code and returns the bar code
+/**
+    * This method takes a zip code and returns a bar code
+ 	* representing the zip code
+    *
+    * @param   	zipCode  A string representing a zip code
+    * @return  	barCode  A string representing a bar code
+    */	
 	private String encode (String zipCode)
 	{
 		// this is the check digit in a bar code
@@ -160,7 +172,12 @@ public class BarCode {
 		return barCode.toString();
 	}
 
-	// takes a bar code and returns the zip code
+	/**
+    * This method takes a bar code and returns a zip code
+    *
+    * @param   	barCode  A string representing a bar code
+    * @return  	barCode  A string representing a zip code
+    */	
 	private String decode (String barCode)
 	{
 		// start building zip code
@@ -185,11 +202,17 @@ public class BarCode {
 			zipCode.append(codeToDigit(barSegments[i]));
 		}
 
+		// return the zip code as a string
 		return zipCode.toString();
 	}
 
-	// returns s the integer 0-9  that is necessary for the sum of the 
-	// digits to equal the next multiple of 10
+	/**
+    * This method returns a check digit - the integer 0-9 that is necessary 
+    * for the sum of the zip code digits to equal the next multiple of 10
+    *
+    * @param   	sum  an integer which is the sum of the digits in a zip code
+    * @return  	int  the check digit
+    */	
 	private int getCheckDigit(int sum)
 	{
 		if (sum % 10 != 0) 		// if digitSum is not already a multiple of 10
@@ -199,7 +222,12 @@ public class BarCode {
 		else return 0;
 	}
 
-	// helper function to lookup bar sequence for each digit
+	/**
+    * helper function to lookup the bar sequence corresponding to a zip digit
+    *
+    * @param   	c 				a digit in a zip code (char)
+    * @return  	barSequence  	a string representing a 5-bar sequence
+    */	
 	private String digitToCode(char c) 
 	{
 		String barSequence = "";
@@ -228,7 +256,12 @@ public class BarCode {
 		return barSequence;
 	}
 
-	// helper function to lookup digit for each bar sequence
+	/**
+    * helper function to look up the digit corresponding to a bar sequence
+    *
+    * @param   	s				a bar sequence
+    * @return  	zipDigit  		a digit in a zip code (char)
+    */	
 	private char codeToDigit(String s) 
 	{
 		char zipDigit = '\0';
@@ -257,7 +290,12 @@ public class BarCode {
 		return zipDigit;
 	}
 
-	// helper function to figure out if the zip code is valid
+	/**
+    * helper function to make sure input zip code is valis
+    *
+    * @param   	s				A string of digits
+    * @return  	True or false depending on whether the string is all digits
+    */	
 	private boolean isNumeric(String s) {  
         return s.matches("\\d+");  
     } 
