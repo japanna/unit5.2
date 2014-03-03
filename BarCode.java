@@ -291,7 +291,7 @@ public class BarCode {
 	}
 
 	/**
-    * helper function to make sure input zip code is valis
+    * helper function to make sure input zip code is valid
     *
     * @param   	s				A string of digits
     * @return  	True or false depending on whether the string is all digits
